@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -10,47 +10,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Inter','ui-sans-serif','system-ui'] },
-          colors: {
-            maroon: {
-              50:  '#fdf3f3',
-              100: '#f9e6e6',
-              200: '#f2cfd0',
-              300: '#e5a9ad',
-              400: '#d2747b',
-              500: '#b94a57',
-              600: '#9b2d3b',
-              700: '#872531',
-              800: '#701d29',
-              900: '#591622',
-              950:'#3f0f18'
-            }
-          },
-          boxShadow: {
-            soft: '0 10px 30px rgba(0,0,0,.08)',
-            glow: '0 10px 30px rgba(158,27,50,.25)'
-          }
-        }
-      }
-    }
+    tailwind.config = { darkMode: 'class', theme: { extend: {
+      fontFamily: { sans: ['Inter','ui-sans-serif','system-ui'] },
+      colors: { maroon: {50:'#fdf3f3',100:'#f9e6e6',200:'#f2cfd0',300:'#e5a9ad',400:'#d2747b',500:'#b94a57',600:'#9b2d3b',700:'#872531',800:'#701d29',900:'#591622',950:'#3f0f18'} },
+      boxShadow: { soft:'0 10px 30px rgba(0,0,0,.08)', glow:'0 10px 30px rgba(158,27,50,.25)' }
+    }}};
   </script>
   <style>
-    .ripple { position: relative; overflow: hidden; }
-    .ripple:after { content: ""; position: absolute; inset: 0; border-radius: inherit;
-      transform: scale(0); opacity: .35; background: white;
-      transition: transform .45s ease, opacity .8s ease; pointer-events: none; }
-    .ripple:active:after { transform: scale(1); opacity: 0; }
-    .lift { transition: transform .25s ease, box-shadow .25s ease; }
-    .lift:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,.12) }
-    input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
-    input[type=number] { -moz-appearance: textfield; }
+    .ripple{position:relative;overflow:hidden}.ripple:after{content:"";position:absolute;inset:0;border-radius:inherit;transform:scale(0);opacity:.35;background:#fff;transition:transform .45s ease,opacity .8s ease;pointer-events:none}.ripple:active:after{transform:scale(1);opacity:0}
+    .lift{transition:transform .25s ease,box-shadow .25s ease}.lift:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.12)}
+    .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}.reveal.show{opacity:1;transform:none}
+    *{transition:background-color .3s ease,color .3s ease,border-color .3s ease}
+    input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}input[type=number]{-moz-appearance:textfield}
   </style>
+  <script>(function(){const u=localStorage.getItem('theme');if(u==='dark'||(!u&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark');}})();</script>
 </head>
-<body class="bg-white text-gray-900 antialiased">
-  <!-- Top bar -->
+<body class="bg-white text-gray-900 antialiased dark:bg-neutral-950 dark:text-neutral-100">
   <div class="bg-maroon-900 text-white text-sm">
     <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
       <p class="font-medium">NJ Design — Custom cepat, rapi, bisa satuan & grosir</p>
@@ -61,52 +36,44 @@
     </div>
   </div>
 
-  <!-- Header -->
-  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100">
+  <header class="sticky top-0 z-50 bg-white/85 dark:bg-neutral-950/85 backdrop-blur border-b border-gray-100 dark:border-neutral-800">
     <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
       <a href="#" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-xl bg-maroon-900 grid place-items-center shadow-glow">
-          <span class="text-white font-extrabold">NJ</span>
-        </div>
-        <div>
-          <div class="text-xl font-extrabold tracking-tight group-hover:text-maroon-900">NJ Design</div>
-          <div class="text-xs text-gray-500 -mt-1">Custom Printing & Merch</div>
-        </div>
+        <div class="w-10 h-10 rounded-xl bg-maroon-900 grid place-items-center shadow-glow"><span class="text-white font-extrabold">NJ</span></div>
+        <div><div class="text-xl font-extrabold tracking-tight group-hover:text-maroon-900">NJ Design</div><div class="text-xs text-gray-500 dark:text-neutral-400 -mt-1">Custom Printing & Merch</div></div>
       </a>
 
-      <nav class="hidden md:flex items-center gap-6 text-sm font-bold">
+      <nav class="hidden md:flex items-center gap-3 text-sm font-bold">
         <a href="#produk" class="hover:text-maroon-800 ripple px-2 py-1 rounded-lg">Produk</a>
         <a href="#tentang" class="hover:text-maroon-800 ripple px-2 py-1 rounded-lg">Tentang</a>
         <a href="#faq" class="hover:text-maroon-800 ripple px-2 py-1 rounded-lg">FAQ</a>
         <a href="#kontak" class="hover:text-maroon-800 ripple px-2 py-1 rounded-lg">Kontak</a>
+        <button id="themeBtn" class="ripple px-3 py-2 rounded-xl border dark:border-neutral-700 hover:bg-gray-50 dark:hover:bg-neutral-900" title="Toggle tema">🌓</button>
       </nav>
 
       <div class="flex items-center gap-2">
-        <!-- Search button removed to make room -->
-        <button id="cartBtn" class="ripple relative px-4 py-2 rounded-xl bg-maroon-900 text-white hover:shadow-glow">
-          Keranjang
+        <button id="cartBtn" class="ripple relative px-4 py-2 rounded-xl bg-maroon-900 text-white hover:shadow-glow">Keranjang
           <span id="cartCount" class="absolute -top-2 -right-2 text-[10px] px-1.5 py-0.5 rounded bg-maroon-600 text-white">0</span>
         </button>
-        <button id="menuBtn" class="md:hidden ripple p-2 rounded-lg hover:bg-gray-100" aria-label="Menu">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-          </svg>
+        <button id="menuBtn" class="md:hidden ripple p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-900" aria-label="Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
         </button>
       </div>
     </div>
-    <!-- Mobile nav -->
-    <div id="mobileNav" class="md:hidden hidden border-t border-gray-100">
+    <div id="mobileNav" class="md:hidden hidden border-t border-gray-100 dark:border-neutral-800">
       <div class="px-4 py-3 grid gap-2 text-sm font-medium">
-        <a href="#produk" class="py-2 ripple rounded-lg hover:bg-gray-50 px-2">Produk</a>
-        <a href="#tentang" class="py-2 ripple rounded-lg hover:bg-gray-50 px-2">Tentang</a>
-        <a href="#faq" class="py-2 ripple rounded-lg hover:bg-gray-50 px-2">FAQ</a>
-        <a href="#kontak" class="py-2 ripple rounded-lg hover:bg-gray-50 px-2">Kontak</a>
+        <a href="#produk" class="py-2 ripple rounded-lg hover:bg-gray-50 dark:hover:bg-neutral-900 px-2">Produk</a>
+        <a href="#tentang" class="py-2 ripple rounded-lg hover:bg-gray-50 dark:hover:bg-neutral-900 px-2">Tentang</a>
+        <a href="#faq" class="py-2 ripple rounded-lg hover:bg-gray-50 dark:hover:bg-neutral-900 px-2">FAQ</a>
+        <div class="flex items-center justify-between">
+          <a href="#kontak" class="py-2 ripple rounded-lg hover:bg-gray-50 dark:hover:bg-neutral-900 px-2">Kontak</a>
+          <button id="themeBtnMobile" class="ripple px-3 py-2 rounded-xl border dark:border-neutral-700">🌓</button>
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="relative overflow-hidden">
+  <section class="relative overflow-hidden reveal">
     <div class="absolute inset-0 bg-gradient-to-br from-maroon-900 via-maroon-700 to-maroon-900"></div>
     <div class="relative max-w-7xl mx-auto px-4">
       <div class="grid md:grid-cols-2 gap-10 items-center py-16 md:py-24">
@@ -117,7 +84,7 @@
             <a href="#produk" class="ripple px-5 py-3 rounded-xl bg-white text-maroon-900 font-bold shadow-soft hover:shadow-glow">Lihat Katalog</a>
             <a href="#kontak" class="ripple px-5 py-3 rounded-xl border border-white/60 text-white font-semibold hover:bg-white/10">Konsultasi Gratis</a>
           </div>
-          <div class="mt-6 text-sm text-white/90">CATATAN: <span class="font-semibold">Kami Hanya Menjual Design Saja Tidak Dengan Barang.</span> • Responsif • Order Via Whatsapp</div>
+          <div class="mt-6 text-sm text-white/90">Warna utama: <span class="font-semibold">Maroon</span> • Responsif • Animasi klik tombol</div>
         </div>
         <div class="relative">
           <div class="aspect-[4/3] bg-white/10 backdrop-blur rounded-3xl ring-1 ring-white/20 shadow-soft p-4">
@@ -138,102 +105,97 @@
     </div>
   </section>
 
-  <!-- Katalog -->
-  <section id="produk" class="max-w-7xl mx-auto px-4 py-16">
+  <section id="produk" class="max-w-7xl mx-auto px-4 py-16 reveal">
     <div class="flex items-end justify-between gap-6">
       <div>
         <h2 class="text-3xl md:text-4xl font-black tracking-tight">Katalog Produk</h2>
-        <p class="text-gray-600 mt-2">Harga awal disesuaikan dengan harga pasar. Kamu bisa unggah foto/desain saat order.</p>
+        <p class="text-gray-600 dark:text-neutral-400 mt-2">Harga awal disesuaikan dengan harga pasar. Kamu bisa unggah foto/desain saat order.</p>
       </div>
       <div class="hidden md:flex items-center gap-2">
-        <input id="searchInput" type="text" placeholder="Cari produk..." class="px-4 py-2 rounded-xl border w-64 focus:ring-2 focus:ring-maroon-300 focus:outline-none">
-        <button id="clearSearch" class="ripple px-4 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 font-semibold">Bersihkan</button>
+        <input id="searchInput" type="text" placeholder="Cari produk..." class="px-4 py-2 rounded-xl border w-64 focus:ring-2 focus:ring-maroon-300 focus:outline-none dark:bg-neutral-900 dark:border-neutral-800">
+        <button id="clearSearch" class="ripple px-4 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 font-semibold dark:bg-neutral-900 dark:hover:bg-neutral-800 dark:border dark:border-neutral-700">Bersihkan</button>
       </div>
     </div>
-
     <div id="grid" class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
   </section>
 
-  <!-- Tentang -->
-  <section id="tentang" class="bg-gray-50 py-16">
+  <section id="tentang" class="bg-gray-50 dark:bg-neutral-900 py-16 reveal">
     <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
       <div>
         <h3 class="text-2xl md:text-3xl font-black tracking-tight">Kenapa pilih <span class="text-maroon-800">NJ Design</span>?</h3>
-        <ul class="mt-5 grid gap-3 text-gray-700">
+        <ul class="mt-5 grid gap-3 text-gray-700 dark:text-neutral-300">
           <li class="flex gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-maroon-700"></span><span>Desain bisa dibantu gratis (minor edit) • lead time cepat.</span></li>
           <li class="flex gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-maroon-700"></span><span>Kualitas sablon & cetak rapi — cocok untuk event, komunitas, & hadiah.</span></li>
           <li class="flex gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-maroon-700"></span><span>Harga fleksibel untuk grosir & langganan bisnis.</span></li>
           <li class="flex gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-maroon-700"></span><span>Garansi reprint jika cacat produksi (syarat & ketentuan berlaku).</span></li>
         </ul>
       </div>
-      <div class="rounded-3xl border bg-white p-6 shadow-soft">
+      <div class="rounded-3xl border bg-white dark:bg-neutral-950 dark:border-neutral-800 p-6 shadow-soft">
         <h4 class="font-extrabold text-lg">Info Harga Pasar (ringkas)</h4>
         <div class="mt-3 grid sm:grid-cols-2 gap-3 text-sm">
-          <div class="p-3 border rounded-xl"><div class="font-bold">Kaos Custom</div><div class="text-gray-600">± Rp 57.500–90.000 /pcs (DTF + kaos)</div></div>
-          <div class="p-3 border rounded-xl"><div class="font-bold">Goodie Bag</div><div class="text-gray-600">± Rp 2.500–30.000 /pcs (bulk)</div></div>
-          <div class="p-3 border rounded-xl"><div class="font-bold">Mug Custom</div><div class="text-gray-600">± Rp 25.000–60.000 /pcs</div></div>
-          <div class="p-3 border rounded-xl"><div class="font-bold">Bantal Custom</div><div class="text-gray-600">± Rp 30.000–70.000 /pcs</div></div>
-          <div class="p-3 border rounded-xl"><div class="font-bold">Selimut Custom</div><div class="text-gray-600">± Rp 150.000–350.000</div></div>
-          <div class="p-3 border rounded-xl"><div class="font-bold">Banner/Spanduk</div><div class="text-gray-600">± Rp 13.500–40.000 /m</div></div>
-          <div class="p-3 border rounded-xl"><div class="font-bold">Cover Novel</div><div class="text-gray-600">± Rp 99.000–500.000 /jasa</div></div>
+          <div class="p-3 border rounded-xl dark:border-neutral-800"><div class="font-bold">Kaos Custom</div><div class="text-gray-600 dark:text-neutral-400">± Rp 57.500–90.000 /pcs (DTF + kaos)</div></div>
+          <div class="p-3 border rounded-xl dark:border-neutral-800"><div class="font-bold">Goodie Bag</div><div class="text-gray-600 dark:text-neutral-400">± Rp 2.500–30.000 /pcs (bulk)</div></div>
+          <div class="p-3 border rounded-xl dark:border-neutral-800"><div class="font-bold">Mug Custom</div><div class="text-gray-600 dark:text-neutral-400">± Rp 25.000–60.000 /pcs</div></div>
+          <div class="p-3 border rounded-xl dark:border-neutral-800"><div class="font-bold">Bantal Custom</div><div class="text-gray-600 dark:text-neutral-400">± Rp 30.000–70.000 /pcs</div></div>
+          <div class="p-3 border rounded-xl dark:border-neutral-800"><div class="font-bold">Selimut Custom</div><div class="text-gray-600 dark:text-neutral-400">± Rp 150.000–350.000</div></div>
+          <div class="p-3 border rounded-xl dark:border-neutral-800"><div class="font-bold">Banner/Spanduk</div><div class="text-gray-600 dark:text-neutral-400">± Rp 13.500–40.000 /m</div></div>
+          <div class="p-3 border rounded-xl dark:border-neutral-800"><div class="font-bold">Cover Novel</div><div class="text-gray-600 dark:text-neutral-400">± Rp 99.000–500.000 /jasa</div></div>
         </div>
-        <div class="mt-3 text-xs text-gray-500">*Rentang harga akan menyesuaikan bahan, ukuran, dan jumlah.</div>
+        <div class="mt-3 text-xs text-gray-500 dark:text-neutral-400">*Rentang harga menyesuaikan bahan, ukuran, dan jumlah.</div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section id="faq" class="max-w-5xl mx-auto px-4 py-16">
+  <section id="faq" class="max-w-5xl mx-auto px-4 py-16 reveal">
     <h3 class="text-2xl md:text-3xl font-black tracking-tight">Pertanyaan yang sering ditanya</h3>
     <div class="mt-6 grid gap-4">
-      <details class="p-4 border rounded-xl bg-white shadow-soft">
+      <details class="p-4 border rounded-xl bg-white dark:bg-neutral-950 dark:border-neutral-800 shadow-soft">
         <summary class="font-semibold cursor-pointer">Apakah bisa order satuan?</summary>
-        <p class="mt-2 text-gray-700">Bisa! Sebagian besar produk bisa dipesan satuan. Untuk goodie bag, ada minimum order jika bahan tertentu.</p>
+        <p class="mt-2 text-gray-700 dark:text-neutral-300">Bisa! Sebagian besar produk bisa dipesan satuan. Untuk goodie bag, ada minimum order jika bahan tertentu.</p>
       </details>
-      <details class="p-4 border rounded-xl bg-white shadow-soft">
+      <details class="p-4 border rounded-xl bg-white dark:bg-neutral-950 dark:border-neutral-800 shadow-soft">
         <summary class="font-semibold cursor-pointer">Bagaimana prosesnya?</summary>
-        <p class="mt-2 text-gray-700">1) Pilih produk & ukuran • 2) Upload gambar/desain • 3) Konfirmasi harga • 4) Produksi • 5) Kirim. Revisi minor desain gratis.</p>
+        <p class="mt-2 text-gray-700 dark:text-neutral-300">1) Pilih produk & ukuran • 2) Upload gambar/desain • 3) Konfirmasi harga • 4) Produksi • 5) Kirim. Revisi minor desain gratis.</p>
       </details>
-      <details class="p-4 border rounded-xl bg-white shadow-soft">
+      <details class="p-4 border rounded-xl bg-white dark:bg-neutral-950 dark:border-neutral-800 shadow-soft">
         <summary class="font-semibold cursor-pointer">Berapa lama produksi?</summary>
-        <p class="mt-2 text-gray-700">Umumnya 1–3 hari kerja untuk satuan. Untuk jumlah banyak/finishing khusus akan diinformasikan saat konfirmasi.</p>
+        <p class="mt-2 text-gray-700 dark:text-neutral-300">Umumnya 1–3 hari kerja untuk satuan. Untuk jumlah banyak/finishing khusus akan diinformasikan saat konfirmasi.</p>
       </details>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section id="kontak" class="relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-gray-50 to-maroon-50"></div>
+  <section id="kontak" class="relative overflow-hidden reveal">
+    <div class="absolute inset-0 bg-gradient-to-br from-gray-50 to-maroon-50 dark:from-neutral-950 dark:to-neutral-900"></div>
     <div class="relative max-w-6xl mx-auto px-4 py-16">
-      <div class="rounded-3xl bg-white border shadow-soft p-6 md:p-10 grid md:grid-cols-2 gap-8">
+      <div class="rounded-3xl bg-white dark:bg-neutral-950 border dark:border-neutral-800 shadow-soft p-6 md:p-10 grid md:grid-cols-2 gap-8">
         <div>
           <h3 class="text-2xl md:text-3xl font-black tracking-tight">Siap mulai? Konsultasi gratis!</h3>
-          <p class="mt-2 text-gray-600">Kirim brief & gambar produk—kami bantu hitungkan harga paling pas.</p>
+          <p class="mt-2 text-gray-600 dark:text-neutral-400">Kirim brief & gambar produk—kami bantu hitungkan harga paling pas.</p>
           <div class="mt-6 grid gap-3">
-            <input id="waNumber" type="tel" value="6288296642919" class="px-4 py-3 rounded-xl border focus:ring-2 focus:ring-maroon-300 focus:outline-none">
-            <textarea id="brief" rows="4" placeholder="Tulis kebutuhanmu (produk, ukuran, jumlah, finishing)" class="px-4 py-3 rounded-xl border focus:ring-2 focus:ring-maroon-300 focus:outline-none"></textarea>
+            <input id="waNumber" type="tel" value="6288296642919" class="px-4 py-3 rounded-xl border focus:ring-2 focus:ring-maroon-300 focus:outline-none dark:bg-neutral-900 dark:border-neutral-800">
+            <textarea id="brief" rows="4" placeholder="Tulis kebutuhanmu (produk, ukuran, jumlah, finishing)" class="px-4 py-3 rounded-xl border focus:ring-2 focus:ring-maroon-300 focus:outline-none dark:bg-neutral-900 dark:border-neutral-800"></textarea>
             <div class="flex gap-3">
               <button id="sendWA" class="ripple px-5 py-3 rounded-xl bg-maroon-900 text-white font-bold hover:shadow-glow">Kirim via WhatsApp</button>
-              <button id="downloadQuote" class="ripple px-5 py-3 rounded-xl border font-semibold hover:bg-gray-50">Unduh ringkasan</button>
+              <button id="downloadQuote" class="ripple px-5 py-3 rounded-xl border font-semibold hover:bg-gray-50 dark:hover:bg-neutral-900 dark:border-neutral-700">Unduh ringkasan</button>
             </div>
-            <div class="text-sm text-gray-600">Instagram: <a href="https://www.instagram.com/jenfornaren?igsh=MXJmdXBoeDNkODU4MA==" class="text-maroon-800 underline">jenfornaren</a></div>
+            <div class="text-sm text-gray-600 dark:text-neutral-400">Instagram: <a href="https://www.instagram.com/jenfornaren?igsh=MXJmdXBoeDNkODU4MA==" class="text-maroon-300 underline">jenfornaren</a></div>
           </div>
-          <p class="mt-3 text-xs text-gray-500">*Nomor tidak disimpan. Hanya membuka chat WA dengan template pesan.</p>
+          <p class="mt-3 text-xs text-gray-500 dark:text-neutral-400">*Nomor tidak disimpan. Hanya membuka chat WA dengan template pesan.</p>
         </div>
-        <div class="rounded-2xl bg-gray-50 border p-5">
+        <div class="rounded-2xl bg-gray-50 dark:bg-neutral-900 border dark:border-neutral-800 p-5">
           <h4 class="font-extrabold">Alamat & Jam</h4>
-          <p class="mt-2 text-gray-700">Workshop: Jl. Siliwangi No.62, Kec. Pancoran Mas, Kota Depok. Kirim ke seluruh Indonesia.</p>
+          <p class="mt-2 text-gray-700 dark:text-neutral-300">Workshop: Jl. Siliwangi No.62, Kec. Pancoran Mas, Kota Depok. Kirim ke seluruh Indonesia.</p>
           <div class="mt-4 grid sm:grid-cols-2 gap-3 text-sm">
-            <div class="p-3 bg-white border rounded-xl">Sen–Jum • 09.00–21.00</div>
-            <div class="p-3 bg-white border rounded-xl">Sab–Min • 10.00–20.00</div>
+            <div class="p-3 bg-white dark:bg-neutral-950 border dark:border-neutral-800 rounded-xl">Sen–Jum • 09.00–21.00</div>
+            <div class="p-3 bg-white dark:bg-neutral-950 border dark:border-neutral-800 rounded-xl">Sab–Min • 10.00–20.00</div>
           </div>
           <div class="mt-6">
-            <div class="text-sm text-gray-600">Media Sosial</div>
+            <div class="text-sm text-gray-600 dark:text-neutral-400">Media Sosial</div>
             <div class="mt-2 flex gap-2 flex-wrap">
               <a href="https://www.instagram.com/jenfornaren?igsh=MXJmdXBoeDNkODU4MA==" class="ripple px-3 py-1.5 rounded-full bg-gray-900 text-white text-xs">Instagram</a>
-              <a href="#" class="ripple px-3 py-1.5 rounded-full bg-gray-200 text-gray-900 text-xs">Facebook</a>
-              <a href="#" class="ripple px-3 py-1.5 rounded-full bg-gray-200 text-gray-900 text-xs">YouTube</a>
-              <a href="#" class="ripple px-3 py-1.5 rounded-full bg-gray-200 text-gray-900 text-xs">TikTok</a>
+              <a href="#" class="ripple px-3 py-1.5 rounded-full bg-gray-200 text-gray-900 dark:bg-neutral-800 dark:text-neutral-200 text-xs">Facebook</a>
+              <a href="#" class="ripple px-3 py-1.5 rounded-full bg-gray-200 text-gray-900 dark:bg-neutral-800 dark:text-neutral-200 text-xs">YouTube</a>
+              <a href="#" class="ripple px-3 py-1.5 rounded-full bg-gray-200 text-gray-900 dark:bg-neutral-800 dark:text-neutral-200 text-xs">TikTok</a>
             </div>
           </div>
         </div>
@@ -241,55 +203,45 @@
     </div>
   </section>
 
-  <!-- Cart Drawer -->
-  <div id="cartDrawer" class="fixed inset-y-0 right-0 w-full sm:w-[420px] bg-white shadow-2xl border-l translate-x-full transition-transform duration-300 z-[60] flex flex-col">
-    <div class="px-5 py-4 border-b flex items-center justify-between">
+  <div id="cartDrawer" class="fixed inset-y-0 right-0 w-full sm:w-[420px] bg-white dark:bg-neutral-950 shadow-2xl border-l border-gray-100 dark:border-neutral-800 translate-x-full transition-transform duration-300 z-[60] flex flex-col">
+    <div class="px-5 py-4 border-b border-gray-100 dark:border-neutral-800 flex items-center justify-between">
       <h4 class="font-extrabold text-lg">Keranjang</h4>
-      <button id="closeCart" class="ripple p-2 rounded-lg hover:bg-gray-100" aria-label="Tutup">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
-        </svg>
+      <button id="closeCart" class="ripple p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-900" aria-label="Tutup">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/></svg>
       </button>
     </div>
     <div id="cartItems" class="flex-1 overflow-y-auto p-4 grid gap-3"></div>
-    <div class="border-t p-4">
-      <div class="flex items-center justify-between font-bold">
-        <span>Total</span>
-        <span id="cartTotal">Rp0</span>
-      </div>
+    <div class="border-t border-gray-100 dark:border-neutral-800 p-4">
+      <div class="flex items-center justify-between font-bold"><span>Total</span><span id="cartTotal">Rp0</span></div>
       <div class="mt-3 grid gap-2">
         <button id="checkoutWA" class="ripple px-4 py-3 rounded-xl bg-maroon-900 text-white font-bold hover:shadow-glow">Checkout via WhatsApp</button>
-        <button id="clearCart" class="ripple px-4 py-3 rounded-xl border font-semibold hover:bg-gray-50">Kosongkan</button>
+        <button id="clearCart" class="ripple px-4 py-3 rounded-xl border font-semibold hover:bg-gray-50 dark:hover:bg-neutral-900 dark:border-neutral-700">Kosongkan</button>
       </div>
     </div>
   </div>
 
-  <!-- Product Modal -->
   <div id="modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden items-center justify-center z-[70]">
-    <div class="bg-white w-[95vw] max-w-2xl rounded-3xl shadow-2xl overflow-hidden">
-      <div class="flex justify-between items-center px-6 py-4 border-b">
+    <div class="bg-white dark:bg-neutral-950 w-[95vw] max-w-2xl rounded-3xl shadow-2xl overflow-hidden border dark:border-neutral-800">
+      <div class="flex justify-between items-center px-6 py-4 border-b border-gray-100 dark:border-neutral-800">
         <h4 id="modalTitle" class="font-extrabold text-lg">Detail Produk</h4>
-        <button id="closeModal" class="ripple p-2 rounded-lg hover:bg-gray-100" aria-label="Tutup">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
-          </svg>
+        <button id="closeModal" class="ripple p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-900" aria-label="Tutup">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
       </div>
       <div class="p-6 grid md:grid-cols-2 gap-6">
-        <div class="aspect-square rounded-2xl bg-gray-100 overflow-hidden">
+        <div class="aspect-square rounded-2xl bg-gray-100 dark:bg-neutral-900 overflow-hidden">
           <img id="modalImage" alt="Preview" class="w-full h-full object-cover" />
         </div>
         <div>
-          <div id="modalDesc" class="text-gray-700"></div>
-          <div class="mt-3 p-3 bg-gray-50 rounded-xl">
-            <div class="text-sm text-gray-600">Harga awal NJ Design</div>
+          <div id="modalDesc" class="text-gray-700 dark:text-neutral-300"></div>
+          <div class="mt-3 p-3 bg-gray-50 dark:bg-neutral-900 border border-gray-100 dark:border-neutral-800 rounded-xl">
+            <div class="text-sm text-gray-600 dark:text-neutral-400">Harga awal NJ Design</div>
             <div id="modalPrice" class="text-xl font-extrabold"></div>
-            <div id="modalMarket" class="text-xs text-gray-500 mt-1"></div>
+            <div id="modalMarket" class="text-xs text-gray-500 dark:text-neutral-400 mt-1"></div>
           </div>
           <div class="mt-4 grid grid-cols-3 gap-2">
-            <label class="text-sm col-span-2">
-              <span class="block mb-1">Jumlah</span>
-              <input id="modalQty" type="number" min="1" value="1" class="w-full px-3 py-2 rounded-xl border focus:ring-2 focus:ring-maroon-300 focus:outline-none">
+            <label class="text-sm col-span-2"><span class="block mb-1">Jumlah</span>
+              <input id="modalQty" type="number" min="1" value="1" class="w-full px-3 py-2 rounded-xl border focus:ring-2 focus:ring-maroon-300 focus:outline-none dark:bg-neutral-900 dark:border-neutral-800">
             </label>
             <button id="modalAdd" class="ripple mt-6 px-4 py-2 rounded-xl bg-maroon-900 text-white font-bold hover:shadow-glow">Tambah</button>
           </div>
@@ -298,8 +250,8 @@
     </div>
   </div>
 
-  <footer class="border-t">
-    <div class="max-w-7xl mx-auto px-4 py-10 text-sm text-gray-600">
+  <footer class="border-t border-gray-100 dark:border-neutral-800">
+    <div class="max-w-7xl mx-auto px-4 py-10 text-sm text-gray-600 dark:text-neutral-400">
       <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
         <div>&copy; <span id="year"></span> NJ Design. All rights reserved.</div>
         <div>Made with ❤️ in Indonesia.</div>
@@ -309,217 +261,86 @@
 
   <script>
     const formatIDR = n => new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(n);
-
-    const MARKET_INFO = {
-      'Goodie Bag Custom': 'Pasar: ± Rp 2.500–30.000/pcs (bulk)',
-      'Baju Custom': 'Pasar: ± Rp 57.500–90.000/pcs (DTF + kaos)',
-      'Bantal Custom': 'Pasar: ± Rp 30.000–70.000/pcs',
-      'Selimut Custom': 'Pasar: ± Rp 150.000–350.000',
-      'Gelas Custom': 'Pasar: ± Rp 25.000–60.000/pcs',
-      'Banner Custom': 'Pasar: ± Rp 13.500–40.000/m',
-      'Cover Novel': 'Pasar: ± Rp 99.000–500.000/jasa'
-    };
-
+    const MARKET_INFO = {'Goodie Bag Custom':'Pasar: ± Rp 2.500–30.000/pcs (bulk)','Baju Custom':'Pasar: ± Rp 57.500–90.000/pcs (DTF + kaos)','Bantal Custom':'Pasar: ± Rp 30.000–70.000/pcs','Selimut Custom':'Pasar: ± Rp 150.000–350.000','Gelas Custom':'Pasar: ± Rp 25.000–60.000/pcs','Banner Custom':'Pasar: ± Rp 13.500–40.000/m','Cover Novel':'Pasar: ± Rp 99.000–500.000/jasa'};
     const PRODUCTS = [
-      { id:'goodie-bag', name:'Goodie Bag Custom', description:'Tas spunbond custom untuk event/merch. Bisa sablon 1–2 sisi. *MOQ* bisa berlaku untuk bahan tertentu.', price:7000, unit:'/pcs', img:'images/goodiebag.jpg', market:MARKET_INFO['Goodie Bag Custom'] },
-      { id:'baju-custom', name:'Baju Custom', description:'Kaos cotton combed + sablon DTF full color. Cocok untuk komunitas/brand merch.', price:85000, unit:'/pcs', img:'images/kaos.jpg', market:MARKET_INFO['Baju Custom'] },
-      { id:'bantal-custom', name:'Bantal Custom', description:'Bantal sofa/foto ukuran 30×30/40×40 bahan rasfur/velboa. Isi silikon empuk.', price:45000, unit:'/pcs', img:'images/bantal.jpg', market:MARKET_INFO['Bantal Custom'] },
-      { id:'selimut-custom', name:'Selimut Custom', description:'Selimut custom fullprint. Pilihan bahan scuba/flanel/rasfur.', price:180000, unit:'', img:'images/selimut.jpg', market:MARKET_INFO['Selimut Custom'] },
-      { id:'gelas-custom', name:'Gelas Custom', description:'Mug keramik/sublim print. Cocok untuk hadiah & souvenir.', price:30000, unit:'/pcs', img:'images/mug.jpg', market:MARKET_INFO['Gelas Custom'] },
-      { id:'banner-custom', name:'Banner Custom', description:'Cetak spanduk/banner bahan flexy 280–440gr. Harga per meter.', price:25000, unit:'/m', img:'images/banner.jpg', market:MARKET_INFO['Banner Custom'] },
-      { id:'cover-novel', name:'Cover Novel', description:'Jasa desain cover buku/novel. Termasuk 2–3 konsep & 2x revisi minor.', price:200000, unit:'/paket', img:'images/cover.jpg', market:MARKET_INFO['Cover Novel'] },
+      {id:'goodie-bag',name:'Goodie Bag Custom',description:'Tas spunbond custom untuk event/merch. Bisa sablon 1–2 sisi. *MOQ* bisa berlaku untuk bahan tertentu.',price:7000,unit:'/pcs',img:'images/goodiebag.jpg',market:MARKET_INFO['Goodie Bag Custom']},
+      {id:'baju-custom',name:'Baju Custom',description:'Kaos cotton combed + sablon DTF full color. Cocok untuk komunitas/brand merch.',price:85000,unit:'/pcs',img:'images/kaos.jpg',market:MARKET_INFO['Baju Custom']},
+      {id:'bantal-custom',name:'Bantal Custom',description:'Bantal sofa/foto ukuran 30×30/40×40 bahan rasfur/velboa. Isi silikon empuk.',price:45000,unit:'/pcs',img:'images/bantal.jpg',market:MARKET_INFO['Bantal Custom']},
+      {id:'selimut-custom',name:'Selimut Custom',description:'Selimut custom fullprint. Pilihan bahan scuba/flanel/rasfur.',price:180000,unit:'',img:'images/selimut.jpg',market:MARKET_INFO['Selimut Custom']},
+      {id:'gelas-custom',name:'Gelas Custom',description:'Mug keramik/sublim print. Cocok untuk hadiah & souvenir.',price:30000,unit:'/pcs',img:'images/mug.jpg',market:MARKET_INFO['Gelas Custom']},
+      {id:'banner-custom',name:'Banner Custom',description:'Cetak spanduk/banner bahan flexy 280–440gr. Harga per meter.',price:25000,unit:'/m',img:'images/banner.jpg',market:MARKET_INFO['Banner Custom']},
+      {id:'cover-novel',name:'Cover Novel',description:'Jasa desain cover buku/novel. Termasuk 2–3 konsep & 2x revisi minor.',price:200000,unit:'/paket',img:'images/cover.jpg',market:MARKET_INFO['Cover Novel']},
     ];
 
     const grid = document.getElementById('grid');
-
     const createCard = (p) => {
       const el = document.createElement('div');
-      el.className = 'lift rounded-2xl border bg-white overflow-hidden shadow-soft flex flex-col';
+      el.className = 'lift reveal rounded-2xl border bg-white dark:bg-neutral-950 dark:border-neutral-800 overflow-hidden shadow-soft flex flex-col';
       el.innerHTML = `
-        <div class="aspect-[4/3] bg-gray-100 overflow-hidden">
+        <div class="aspect-[4/3] bg-gray-100 dark:bg-neutral-900 overflow-hidden">
           <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover">
         </div>
         <div class="p-4 flex-1 flex flex-col">
           <div class="flex items-start justify-between gap-3">
             <h4 class="font-extrabold text-lg">${p.name}</h4>
-            <span class="px-2 py-1 rounded-lg bg-gray-100 text-xs">${p.unit || ''}</span>
+            <span class="px-2 py-1 rounded-lg bg-gray-100 dark:bg-neutral-900 text-xs">${p.unit || ''}</span>
           </div>
-          <p class="mt-1 text-gray-600 text-sm line-clamp-2">${p.description}</p>
-          <div class="mt-3 text-xl font-extrabold text-maroon-900">${formatIDR(p.price)}<span class="text-sm font-semibold text-gray-500">${p.unit}</span></div>
+          <p class="mt-1 text-gray-600 dark:text-neutral-400 text-sm line-clamp-2">${p.description}</p>
+          <div class="mt-3 text-xl font-extrabold text-maroon-900">${formatIDR(p.price)}<span class="text-sm font-semibold text-gray-500 dark:text-neutral-400">${p.unit}</span></div>
           <div class="mt-4 flex gap-2">
             <button data-id="${p.id}" class="ripple addBtn flex-1 px-4 py-2 rounded-xl bg-maroon-900 text-white font-bold hover:shadow-glow">Tambah</button>
-            <button data-id="${p.id}" class="ripple detailBtn px-4 py-2 rounded-xl border font-semibold hover:bg-gray-50">Detail</button>
+            <button data-id="${p.id}" class="ripple detailBtn px-4 py-2 rounded-xl border font-semibold hover:bg-gray-50 dark:hover:bg-neutral-900 dark:border-neutral-700">Detail</button>
           </div>
-        </div>
-      `;
+        </div>`;
       return el;
     };
-
-    function renderGrid(list) {
-      grid.innerHTML = '';
-      list.forEach(p => grid.appendChild(createCard(p)));
-    }
+    function renderGrid(list){ grid.innerHTML=''; list.forEach(p=>grid.appendChild(createCard(p))); observeReveal(); }
     renderGrid(PRODUCTS);
 
-    // Search (section only)
-    const searchInput = document.getElementById('searchInput');
-    const clearSearch = document.getElementById('clearSearch');
-    function doSearch(){
-      const term = (searchInput.value || '').toLowerCase();
-      const res = PRODUCTS.filter(p => p.name.toLowerCase().includes(term) || p.description.toLowerCase().includes(term));
-      renderGrid(res);
-    }
-    searchInput?.addEventListener('input', doSearch);
-    clearSearch?.addEventListener('click', () => { searchInput.value=''; renderGrid(PRODUCTS); });
+    const searchInput=document.getElementById('searchInput'); const clearSearch=document.getElementById('clearSearch');
+    function doSearch(){ const t=(searchInput.value||'').toLowerCase(); renderGrid(PRODUCTS.filter(p=>p.name.toLowerCase().includes(t)||p.description.toLowerCase().includes(t))); }
+    searchInput?.addEventListener('input',doSearch); clearSearch?.addEventListener('click',()=>{searchInput.value=''; renderGrid(PRODUCTS);});
 
-    // Mobile menu
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileNav = document.getElementById('mobileNav');
-    menuBtn?.addEventListener('click', () => mobileNav.classList.toggle('hidden'));
+    const menuBtn=document.getElementById('menuBtn'); const mobileNav=document.getElementById('mobileNav'); menuBtn?.addEventListener('click',()=>mobileNav.classList.toggle('hidden'));
 
-    // Modal & Cart
-    const modal = document.getElementById('modal');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalDesc  = document.getElementById('modalDesc');
-    const modalPrice = document.getElementById('modalPrice');
-    const modalMarket= document.getElementById('modalMarket');
-    const modalImage = document.getElementById('modalImage');
-    const modalQty   = document.getElementById('modalQty');
-    const modalAdd   = document.getElementById('modalAdd');
-    document.getElementById('closeModal').addEventListener('click', () => modal.classList.add('hidden'));
-    modal.addEventListener('click', (e) => { if(e.target === modal) modal.classList.add('hidden'); });
+    function toggleTheme(){ const d=document.documentElement.classList.toggle('dark'); localStorage.setItem('theme', d?'dark':'light'); }
+    document.getElementById('themeBtn').addEventListener('click',toggleTheme);
+    document.getElementById('themeBtnMobile').addEventListener('click',toggleTheme);
 
-    let currentProduct = null;
-
-    document.addEventListener('click', (e) => {
-      if (e.target.closest('.detailBtn')) {
-        const id = e.target.closest('.detailBtn').dataset.id;
-        const p = PRODUCTS.find(x => x.id === id);
-        currentProduct = p;
-        modalTitle.textContent = p.name;
-        modalDesc.textContent  = p.description;
-        modalPrice.textContent = `${formatIDR(p.price)} ${p.unit}`;
-        modalMarket.textContent= p.market;
-        modalImage.src = p.img;
-        modalQty.value = 1;
-        modal.classList.remove('hidden');
-      }
-      if (e.target.closest('.addBtn')) {
-        const id = e.target.closest('.addBtn').dataset.id;
-        addToCart(id, 1);
-      }
+    const modal=document.getElementById('modal'); const modalTitle=document.getElementById('modalTitle'); const modalDesc=document.getElementById('modalDesc'); const modalPrice=document.getElementById('modalPrice'); const modalMarket=document.getElementById('modalMarket'); const modalImage=document.getElementById('modalImage'); const modalQty=document.getElementById('modalQty'); const modalAdd=document.getElementById('modalAdd');
+    document.getElementById('closeModal').addEventListener('click',()=>modal.classList.add('hidden')); modal.addEventListener('click',(e)=>{if(e.target===modal)modal.classList.add('hidden');});
+    let currentProduct=null;
+    document.addEventListener('click',(e)=>{
+      if(e.target.closest('.detailBtn')){ const id=e.target.closest('.detailBtn').dataset.id; const p=PRODUCTS.find(x=>x.id===id); currentProduct=p; modalTitle.textContent=p.name; modalDesc.textContent=p.description; modalPrice.textContent=`${formatIDR(p.price)} ${p.unit}`; modalMarket.textContent=p.market; modalImage.src=p.img; modalQty.value=1; modal.classList.remove('hidden'); }
+      if(e.target.closest('.addBtn')){ const id=e.target.closest('.addBtn').dataset.id; addToCart(id,1); }
     });
 
-    // Cart logic
-    const cartBtn = document.getElementById('cartBtn');
-    const cartDrawer = document.getElementById('cartDrawer');
-    const closeCart = document.getElementById('closeCart');
-    const cartItems = document.getElementById('cartItems');
-    const cartTotal = document.getElementById('cartTotal');
-    const cartCount = document.getElementById('cartCount');
-    const clearCartBtn = document.getElementById('clearCart');
-    const checkoutWA = document.getElementById('checkoutWA');
-
-    let CART = [];
-
-    function openCart(){ cartDrawer.style.transform='translateX(0)'; }
-    function closeCartFn(){ cartDrawer.style.transform='translateX(100%)'; }
-
-    cartBtn.addEventListener('click', openCart);
-    closeCart.addEventListener('click', closeCartFn);
-
-    function addToCart(id, qty=1){
-      const p = PRODUCTS.find(x => x.id === id);
-      if(!p) return;
-      const i = CART.findIndex(x => x.id === id);
-      if (i >= 0) CART[i].qty += qty; else CART.push({ id, name: p.name, price: p.price, unit: p.unit, qty });
-      renderCart();
-      openCart();
-    }
-
-    function updateQty(id, qty){
-      const i = CART.findIndex(x => x.id === id);
-      if (i >= 0) {
-        CART[i].qty = Math.max(1, qty);
-        renderCart();
-      }
-    }
-
-    function removeItem(id){
-      CART = CART.filter(x => x.id !== id);
-      renderCart();
-    }
-
-    function renderCart(){
-      cartItems.innerHTML = '';
-      let total = 0;
-      CART.forEach(item => {
-        total += item.price * item.qty;
-        const row = document.createElement('div');
-        row.className = 'border rounded-xl p-3 flex items-center gap-3';
-        row.innerHTML = `
+    const cartBtn=document.getElementById('cartBtn'); const cartDrawer=document.getElementById('cartDrawer'); const closeCart=document.getElementById('closeCart'); const cartItems=document.getElementById('cartItems'); const cartTotal=document.getElementById('cartTotal'); const cartCount=document.getElementById('cartCount'); const clearCartBtn=document.getElementById('clearCart'); const checkoutWA=document.getElementById('checkoutWA');
+    let CART=[];
+    function openCart(){cartDrawer.style.transform='translateX(0)';} function closeCartFn(){cartDrawer.style.transform='translateX(100%)';}
+    cartBtn.addEventListener('click',openCart); closeCart.addEventListener('click',closeCartFn);
+    function addToCart(id,qty=1){ const p=PRODUCTS.find(x=>x.id===id); if(!p)return; const i=CART.findIndex(x=>x.id===id); if(i>=0)CART[i].qty+=qty; else CART.push({id,name:p.name,price:p.price,unit:p.unit,qty}); renderCart(); openCart(); }
+    function updateQty(id,qty){ const i=CART.findIndex(x=>x.id===id); if(i>=0){CART[i].qty=Math.max(1,qty); renderCart();} }
+    function removeItem(id){ CART=CART.filter(x=>x.id!==id); renderCart(); }
+    function renderCart(){ cartItems.innerHTML=''; let total=0; CART.forEach(item=>{ total+=item.price*item.qty; const row=document.createElement('div'); row.className='border rounded-xl p-3 flex items-center gap-3 dark:border-neutral-800'; row.innerHTML=`
           <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-maroon-900 to-maroon-700 grid place-items-center text-white font-bold">${item.name.split(' ')[0]}</div>
-          <div class="flex-1">
-            <div class="font-semibold">${item.name}</div>
-            <div class="text-sm text-gray-600">${formatIDR(item.price)} ${item.unit}</div>
-          </div>
+          <div class="flex-1"><div class="font-semibold">${item.name}</div><div class="text-sm text-gray-600 dark:text-neutral-400">${formatIDR(item.price)} ${item.unit}</div></div>
           <div class="flex items-center gap-2">
-            <input type="number" min="1" value="${item.qty}" data-id="${item.id}" class="qtyInput w-16 px-2 py-1 rounded-lg border">
-            <button class="removeBtn ripple p-2 rounded-lg hover:bg-gray-100" data-id="${item.id}">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
-        `;
-        cartItems.appendChild(row);
-      });
-      cartTotal.textContent = formatIDR(total);
-      cartCount.textContent = CART.reduce((a,c)=>a+c.qty,0);
-    }
+            <input type="number" min="1" value="${item.qty}" data-id="${item.id}" class="qtyInput w-16 px-2 py-1 rounded-lg border dark:border-neutral-800 dark:bg-neutral-900">
+            <button class="removeBtn ripple p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-900" data-id="${item.id}"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/></svg></button>
+          </div>`; cartItems.appendChild(row); }); cartTotal.textContent=formatIDR(total); cartCount.textContent=CART.reduce((a,c)=>a+c.qty,0); }
+    cartItems.addEventListener('input',(e)=>{ if(e.target.classList.contains('qtyInput')){const id=e.target.dataset.id; const val=parseInt(e.target.value||'1',10); updateQty(id,isNaN(val)?1:val);} });
+    cartItems.addEventListener('click',(e)=>{ if(e.target.closest('.removeBtn')) removeItem(e.target.closest('.removeBtn').dataset.id); });
+    clearCartBtn.addEventListener('click',()=>{CART=[]; renderCart();});
 
-    cartItems.addEventListener('input', (e) => {
-      if (e.target.classList.contains('qtyInput')) {
-        const id = e.target.dataset.id;
-        const val = parseInt(e.target.value || '1', 10);
-        updateQty(id, isNaN(val) ? 1 : val);
-      }
-    });
-    cartItems.addEventListener('click', (e) => {
-      if (e.target.closest('.removeBtn')) {
-        removeItem(e.target.closest('.removeBtn').dataset.id);
-      }
-    });
-    clearCartBtn.addEventListener('click', () => { CART = []; renderCart(); });
+    function buildWAMessage(){ const lines=['Halo NJ Design, saya ingin order:','']; CART.forEach((it,idx)=>{lines.push(`${idx+1}. ${it.name} x${it.qty} — ${formatIDR(it.price)}${it.unit}`);}); lines.push(''); const total=CART.reduce((a,c)=>a+c.price*c.qty,0); lines.push(`Total estimasi: ${formatIDR(total)}`); lines.push(''); lines.push('Catatan/Brief:'); return encodeURIComponent(lines.join('\\n')); }
+    checkoutWA.addEventListener('click',()=>{ const wa=document.getElementById('waNumber').value||'6288296642919'; const msg=buildWAMessage(); window.open(`https://wa.me/${wa}?text=${msg}`,'_blank'); });
+    document.getElementById('sendWA').addEventListener('click',()=>{ const wa=document.getElementById('waNumber').value||'6288296642919'; const brief=encodeURIComponent((document.getElementById('brief').value||'').trim()||'Halo, saya ingin konsultasi...'); window.open(`https://wa.me/${wa}?text=${brief}`,'_blank'); });
 
-    // Checkout via WhatsApp
-    function buildWAMessage(){
-      const lines = ['Halo NJ Design, saya ingin order:', ''];
-      CART.forEach((it, idx)=>{
-        lines.push(`${idx+1}. ${it.name} x${it.qty} — ${formatIDR(it.price)}${it.unit}`);
-      });
-      lines.push('');
-      const total = CART.reduce((a,c)=>a + c.price*c.qty, 0);
-      lines.push(`Total estimasi: ${formatIDR(total)}`);
-      lines.push('');
-      lines.push('Catatan/Brief:');
-      return encodeURIComponent(lines.join('\\n'));
-    }
-    checkoutWA.addEventListener('click', () => {
-      const wa = document.getElementById('waNumber').value || '6288296642919';
-      const msg = buildWAMessage();
-      window.open(`https://wa.me/${wa}?text=${msg}`, '_blank');
-    });
+    function observeReveal(){ const els=document.querySelectorAll('.reveal'); const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); } });},{threshold:0.1}); els.forEach(el=>io.observe(el)); }
+    observeReveal();
 
-    // CTA WhatsApp
-    document.getElementById('sendWA').addEventListener('click', () => {
-      const wa = document.getElementById('waNumber').value || '6288296642919';
-      const brief = encodeURIComponent((document.getElementById('brief').value || '').trim() || 'Halo, saya ingin konsultasi...');
-      window.open(`https://wa.me/${wa}?text=${brief}`, '_blank');
-    });
-
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('year').textContent=new Date().getFullYear();
   </script>
 </body>
 </html>
