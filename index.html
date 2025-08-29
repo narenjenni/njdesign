@@ -21,6 +21,8 @@
     .lift{transition:transform .25s ease,box-shadow .25s ease}.lift:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.12)}
     .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}.reveal.show{opacity:1;transform:none}
     *{transition:background-color .3s ease,color .3s ease,border-color .3s ease}
+    .parallax [data-depth]{will-change:transform;transition:transform .2s ease}
+    .fav.active{color:#e11d48}
     input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}input[type=number]{-moz-appearance:textfield}
   </style>
   <script>(function(){const u=localStorage.getItem('theme');if(u==='dark'||(!u&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark');}})();</script>
@@ -45,8 +47,8 @@
 
       <nav class="hidden md:flex items-center gap-3 text-sm font-bold">
         <a href="#produk" class="hover:text-maroon-800 ripple px-2 py-1 rounded-lg">Produk</a>
-        <a href="#tentang" class="hover:text-maroon-800 ripple px-2 py-1 rounded-lg">Tentang</a>
-        <a href="#faq" class="hover:text-maroon-800 ripple px-2 py-1 rounded-lg">FAQ</a>
+        <a href="#galeri" class="hover:text-maroon-800 ripple px-2 py-1 rounded-lg">Galeri</a>
+        <a href="#testimoni" class="hover:text-maroon-800 ripple px-2 py-1 rounded-lg">Testimoni</a>
         <a href="#kontak" class="hover:text-maroon-800 ripple px-2 py-1 rounded-lg">Kontak</a>
         <button id="themeBtn" class="ripple px-3 py-2 rounded-xl border dark:border-neutral-700 hover:bg-gray-50 dark:hover:bg-neutral-900" title="Toggle tema">🌓</button>
       </nav>
@@ -63,8 +65,8 @@
     <div id="mobileNav" class="md:hidden hidden border-t border-gray-100 dark:border-neutral-800">
       <div class="px-4 py-3 grid gap-2 text-sm font-medium">
         <a href="#produk" class="py-2 ripple rounded-lg hover:bg-gray-50 dark:hover:bg-neutral-900 px-2">Produk</a>
-        <a href="#tentang" class="py-2 ripple rounded-lg hover:bg-gray-50 dark:hover:bg-neutral-900 px-2">Tentang</a>
-        <a href="#faq" class="py-2 ripple rounded-lg hover:bg-gray-50 dark:hover:bg-neutral-900 px-2">FAQ</a>
+        <a href="#galeri" class="py-2 ripple rounded-lg hover:bg-gray-50 dark:hover:bg-neutral-900 px-2">Galeri</a>
+        <a href="#testimoni" class="py-2 ripple rounded-lg hover:bg-gray-50 dark:hover:bg-neutral-900 px-2">Testimoni</a>
         <div class="flex items-center justify-between">
           <a href="#kontak" class="py-2 ripple rounded-lg hover:bg-gray-50 dark:hover:bg-neutral-900 px-2">Kontak</a>
           <button id="themeBtnMobile" class="ripple px-3 py-2 rounded-xl border dark:border-neutral-700">🌓</button>
@@ -73,20 +75,21 @@
     </div>
   </header>
 
+  <!-- Hero Parallax -->
   <section class="relative overflow-hidden reveal">
     <div class="absolute inset-0 bg-gradient-to-br from-maroon-900 via-maroon-700 to-maroon-900"></div>
-    <div class="relative max-w-7xl mx-auto px-4">
+    <div class="relative max-w-7xl mx-auto px-4 parallax" id="hero">
       <div class="grid md:grid-cols-2 gap-10 items-center py-16 md:py-24">
         <div class="text-white">
-          <h1 class="text-4xl md:text-5xl font-black leading-tight">Custom <span class="underline decoration-white/40 underline-offset-4">Printing</span> yang <span class="text-yellow-200 drop-shadow">Bikin Ngejreng</span></h1>
-          <p class="mt-5 text-white/90 text-lg">Goodie bag, kaos, bantal, selimut, mug, banner, sampai <span class="font-semibold">cover novel</span>. Desain bisa kamu kirim sendiri atau minta kami buatkan.</p>
-          <div class="mt-8 flex flex-wrap gap-3">
+          <h1 class="text-4xl md:text-5xl font-black leading-tight" data-depth="0.05">Custom <span class="underline decoration-white/40 underline-offset-4">Printing</span> yang <span class="text-yellow-200 drop-shadow">Bikin Ngejreng</span></h1>
+          <p class="mt-5 text-white/90 text-lg" data-depth="0.03">Goodie bag, kaos, bantal, selimut, mug, banner, sampai <span class="font-semibold">cover novel</span>. Desain bisa kamu kirim sendiri atau minta kami buatkan.</p>
+          <div class="mt-8 flex flex-wrap gap-3" data-depth="0.06">
             <a href="#produk" class="ripple px-5 py-3 rounded-xl bg-white text-maroon-900 font-bold shadow-soft hover:shadow-glow">Lihat Katalog</a>
             <a href="#kontak" class="ripple px-5 py-3 rounded-xl border border-white/60 text-white font-semibold hover:bg-white/10">Konsultasi Gratis</a>
           </div>
-          <div class="mt-6 text-sm text-white/90">CATATAN: <span class="font-semibold">Kami Hanya Menjual Design Saja Tidak Dengan Barang</span> • Respon Cepat • Order Via WhatsApp</div>
+          <div class="mt-6 text-sm text-white/90" data-depth="0.02">CATATAN: <span class="font-semibold">Kami Hanya Menjual Design Saja Tidak Dengan Barang</span> • Respon Cepat • Order Via WhatsApp</div>
         </div>
-        <div class="relative">
+        <div class="relative" data-depth="0.05">
           <div class="aspect-[4/3] bg-white/10 backdrop-blur rounded-3xl ring-1 ring-white/20 shadow-soft p-4">
             <div class="h-full w-full rounded-2xl bg-gradient-to-br from-white/15 to-transparent grid place-items-center">
               <div class="grid grid-cols-3 gap-3 w-full">
@@ -105,6 +108,7 @@
     </div>
   </section>
 
+  <!-- Katalog -->
   <section id="produk" class="max-w-7xl mx-auto px-4 py-16 reveal">
     <div class="flex items-end justify-between gap-6">
       <div>
@@ -119,51 +123,45 @@
     <div id="grid" class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
   </section>
 
-  <section id="tentang" class="bg-gray-50 dark:bg-neutral-900 py-16 reveal">
-    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
-      <div>
-        <h3 class="text-2xl md:text-3xl font-black tracking-tight">Kenapa pilih <span class="text-maroon-800">NJ Design</span>?</h3>
-        <ul class="mt-5 grid gap-3 text-gray-700 dark:text-neutral-300">
-          <li class="flex gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-maroon-700"></span><span>Desain bisa dibantu gratis (minor edit) • lead time cepat.</span></li>
-          <li class="flex gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-maroon-700"></span><span>Kualitas sablon & cetak rapi — cocok untuk event, komunitas, & hadiah.</span></li>
-          <li class="flex gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-maroon-700"></span><span>Harga fleksibel untuk grosir & langganan bisnis.</span></li>
-          <li class="flex gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-maroon-700"></span><span>Garansi reprint jika cacat produksi (syarat & ketentuan berlaku).</span></li>
-        </ul>
-      </div>
-      <div class="rounded-3xl border bg-white dark:bg-neutral-950 dark:border-neutral-800 p-6 shadow-soft">
-        <h4 class="font-extrabold text-lg">Info Harga Pasar (ringkas)</h4>
-        <div class="mt-3 grid sm:grid-cols-2 gap-3 text-sm">
-          <div class="p-3 border rounded-xl dark:border-neutral-800"><div class="font-bold">Kaos Custom</div><div class="text-gray-600 dark:text-neutral-400">± Rp 57.500–90.000 /pcs (DTF + kaos)</div></div>
-          <div class="p-3 border rounded-xl dark:border-neutral-800"><div class="font-bold">Goodie Bag</div><div class="text-gray-600 dark:text-neutral-400">± Rp 2.500–30.000 /pcs (bulk)</div></div>
-          <div class="p-3 border rounded-xl dark:border-neutral-800"><div class="font-bold">Mug Custom</div><div class="text-gray-600 dark:text-neutral-400">± Rp 25.000–60.000 /pcs</div></div>
-          <div class="p-3 border rounded-xl dark:border-neutral-800"><div class="font-bold">Bantal Custom</div><div class="text-gray-600 dark:text-neutral-400">± Rp 30.000–70.000 /pcs</div></div>
-          <div class="p-3 border rounded-xl dark:border-neutral-800"><div class="font-bold">Selimut Custom</div><div class="text-gray-600 dark:text-neutral-400">± Rp 150.000–350.000</div></div>
-          <div class="p-3 border rounded-xl dark:border-neutral-800"><div class="font-bold">Banner/Spanduk</div><div class="text-gray-600 dark:text-neutral-400">± Rp 13.500–40.000 /m</div></div>
-          <div class="p-3 border rounded-xl dark:border-neutral-800"><div class="font-bold">Cover Novel</div><div class="text-gray-600 dark:text-neutral-400">± Rp 99.000–500.000 /jasa</div></div>
+  <!-- Galeri -->
+  <section id="galeri" class="max-w-7xl mx-auto px-4 py-16 reveal">
+    <h3 class="text-2xl md:text-3xl font-black tracking-tight">Galeri Produksi</h3>
+    <p class="text-gray-600 dark:text-neutral-400 mt-2">Beberapa karya NJ Design.</p>
+    <div class="mt-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+      <img src="images/goodiebag.jpg" alt="Goodie bag" class="rounded-xl object-cover w-full h-32 md:h-36 lift">
+      <img src="images/bantal.jpg" alt="Bantal" class="rounded-xl object-cover w-full h-32 md:h-36 lift">
+      <img src="images/cover.jpg" alt="Cover novel" class="rounded-xl object-cover w-full h-32 md:h-36 lift">
+      <img src="images/mug.jpg" alt="Mug" class="rounded-xl object-cover w-full h-32 md:h-36 lift">
+      <img src="images/banner.jpg" alt="Banner" class="rounded-xl object-cover w-full h-32 md:h-36 lift">
+      <img src="images/selimut.jpg" alt="Selimut" class="rounded-xl object-cover w-full h-32 md:h-36 lift">
+    </div>
+  </section>
+
+  <!-- Testimoni -->
+  <section id="testimoni" class="bg-gray-50 dark:bg-neutral-900 py-16 reveal">
+    <div class="max-w-7xl mx-auto px-4">
+      <h3 class="text-2xl md:text-3xl font-black tracking-tight">Apa kata pelanggan?</h3>
+      <div class="mt-6 grid md:grid-cols-3 gap-6">
+        <div class="p-5 rounded-2xl border bg-white dark:bg-neutral-950 dark:border-neutral-800 lift">
+          <div class="font-extrabold">Dita — Event Organizer</div>
+          <p class="mt-2 text-gray-700 dark:text-neutral-300">Goodie bag-nya rapi dan cepat selesai. Admin responsif, revisi desain juga cepat.</p>
+          <div class="mt-3 text-yellow-400">★★★★★</div>
         </div>
-        <div class="mt-3 text-xs text-gray-500 dark:text-neutral-400">*Rentang harga menyesuaikan bahan, ukuran, dan jumlah.</div>
+        <div class="p-5 rounded-2xl border bg-white dark:bg-neutral-950 dark:border-neutral-800 lift">
+          <div class="font-extrabold">Rafi — Owner Juice Empire</div>
+          <p class="mt-2 text-gray-700 dark:text-neutral-300">Banner X-stand mantap, warna keluar semua. Pengiriman aman.</p>
+          <div class="mt-3 text-yellow-400">★★★★★</div>
+        </div>
+        <div class="p-5 rounded-2xl border bg-white dark:bg-neutral-950 dark:border-neutral-800 lift">
+          <div class="font-extrabold">Jenny — Penulis</div>
+          <p class="mt-2 text-gray-700 dark:text-neutral-300">Cover novelnya sesuai mood yang dimau, revisi 2x gratis. Recommended!</p>
+          <div class="mt-3 text-yellow-400">★★★★★</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="faq" class="max-w-5xl mx-auto px-4 py-16 reveal">
-    <h3 class="text-2xl md:text-3xl font-black tracking-tight">Pertanyaan yang sering ditanya</h3>
-    <div class="mt-6 grid gap-4">
-      <details class="p-4 border rounded-xl bg-white dark:bg-neutral-950 dark:border-neutral-800 shadow-soft">
-        <summary class="font-semibold cursor-pointer">Apakah bisa order satuan?</summary>
-        <p class="mt-2 text-gray-700 dark:text-neutral-300">Bisa! Sebagian besar produk bisa dipesan satuan. Untuk goodie bag, ada minimum order jika bahan tertentu.</p>
-      </details>
-      <details class="p-4 border rounded-xl bg-white dark:bg-neutral-950 dark:border-neutral-800 shadow-soft">
-        <summary class="font-semibold cursor-pointer">Bagaimana prosesnya?</summary>
-        <p class="mt-2 text-gray-700 dark:text-neutral-300">1) Pilih produk & ukuran • 2) Upload gambar/desain • 3) Konfirmasi harga • 4) Produksi • 5) Kirim. Revisi minor desain gratis.</p>
-      </details>
-      <details class="p-4 border rounded-xl bg-white dark:bg-neutral-950 dark:border-neutral-800 shadow-soft">
-        <summary class="font-semibold cursor-pointer">Berapa lama produksi?</summary>
-        <p class="mt-2 text-gray-700 dark:text-neutral-300">Umumnya 1–3 hari kerja untuk satuan. Untuk jumlah banyak/finishing khusus akan diinformasikan saat konfirmasi.</p>
-      </details>
-    </div>
-  </section>
-
+  <!-- Kontak -->
   <section id="kontak" class="relative overflow-hidden reveal">
     <div class="absolute inset-0 bg-gradient-to-br from-gray-50 to-maroon-50 dark:from-neutral-950 dark:to-neutral-900"></div>
     <div class="relative max-w-6xl mx-auto px-4 py-16">
@@ -203,7 +201,16 @@
     </div>
   </section>
 
-  <div id="cartDrawer" class="fixed inset-y-0 right-0 w-full sm:w-[420px] bg-white dark:bg-neutral-950 shadow-2xl border-l border-gray-100 dark:border-neutral-800 translate-x-full transition-transform duration-300 z-[60] flex flex-col">
+  <!-- Sticky Order Bar (Mobile) -->
+  <div id="orderBar" class="md:hidden fixed bottom-0 left-0 right-0 translate-y-full transition-transform duration-300 z-[70]">
+    <div class="m-3 rounded-2xl shadow-glow bg-maroon-900 text-white px-4 py-3 flex items-center justify-between">
+      <div class="text-sm"><strong id="orderCount">0</strong> item di keranjang • <span id="orderTotal">Rp0</span></div>
+      <button id="openCartBar" class="ripple px-3 py-2 rounded-xl bg-white/20">Lihat</button>
+    </div>
+  </div>
+
+  <!-- Cart Drawer & Modal same as before -->
+  <div id="cartDrawer" class="fixed inset-y-0 right-0 w-full sm:w-[420px] bg-white dark:bg-neutral-950 shadow-2xl border-l border-gray-100 dark:border-neutral-800 translate-x-full transition-transform duration-300 z-[80] flex flex-col">
     <div class="px-5 py-4 border-b border-gray-100 dark:border-neutral-800 flex items-center justify-between">
       <h4 class="font-extrabold text-lg">Keranjang</h4>
       <button id="closeCart" class="ripple p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-900" aria-label="Tutup">
@@ -220,7 +227,7 @@
     </div>
   </div>
 
-  <div id="modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden items-center justify-center z-[70]">
+  <div id="modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden items-center justify-center z-[90]">
     <div class="bg-white dark:bg-neutral-950 w-[95vw] max-w-2xl rounded-3xl shadow-2xl overflow-hidden border dark:border-neutral-800">
       <div class="flex justify-between items-center px-6 py-4 border-b border-gray-100 dark:border-neutral-800">
         <h4 id="modalTitle" class="font-extrabold text-lg">Detail Produk</h4>
@@ -272,13 +279,43 @@
       {id:'cover-novel',name:'Cover Novel',description:'Jasa desain cover buku/novel. Termasuk 2–3 konsep & 2x revisi minor.',price:200000,unit:'/paket',img:'images/cover.jpg',market:MARKET_INFO['Cover Novel']},
     ];
 
+    // Parallax hero
+    const hero = document.getElementById('hero');
+    function parallax(e){
+      const rect = hero.getBoundingClientRect();
+      const cx = (e.clientX || rect.width/2) - rect.left;
+      const cy = (e.clientY || rect.height/2) - rect.top;
+      hero.querySelectorAll('[data-depth]').forEach(el=>{
+        const depth = parseFloat(el.dataset.depth||0);
+        const x = (cx - rect.width/2) / rect.width * depth * 40;
+        const y = (cy - rect.height/2) / rect.height * depth * 40;
+        el.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+      });
+    }
+    hero.addEventListener('mousemove', parallax);
+    window.addEventListener('scroll', ()=>{
+      const s = window.scrollY * 0.06;
+      hero.querySelectorAll('[data-depth]').forEach(el=>{
+        const d = parseFloat(el.dataset.depth||0);
+        el.style.transform = `translate3d(0, ${s*d}px, 0)`;
+      });
+    });
+
+    // Render products with micro-interactions
     const grid = document.getElementById('grid');
+    const FAVORITES = new Set(JSON.parse(localStorage.getItem('favorites')||'[]'));
     const createCard = (p) => {
+      const isFav = FAVORITES.has(p.id);
       const el = document.createElement('div');
-      el.className = 'lift reveal rounded-2xl border bg-white dark:bg-neutral-950 dark:border-neutral-800 overflow-hidden shadow-soft flex flex-col';
+      el.className = 'lift reveal rounded-2xl border bg-white dark:bg-neutral-950 dark:border-neutral-800 overflow-hidden shadow-soft flex flex-col group';
       el.innerHTML = `
-        <div class="aspect-[4/3] bg-gray-100 dark:bg-neutral-900 overflow-hidden">
-          <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover">
+        <div class="relative">
+          <div class="aspect-[4/3] bg-gray-100 dark:bg-neutral-900 overflow-hidden">
+            <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover">
+          </div>
+          <button class="fav ripple absolute top-3 right-3 w-10 h-10 rounded-full bg-white/90 dark:bg-neutral-900/90 border dark:border-neutral-800 grid place-items-center ${isFav?'active':''}" title="Favorit">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 6 4 4 6.5 4c1.74 0 3.41.81 4.5 2.09C12.09 4.81 13.76 4 15.5 4 18 4 20 6 20 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          </button>
         </div>
         <div class="p-4 flex-1 flex flex-col">
           <div class="flex items-start justify-between gap-3">
@@ -291,52 +328,112 @@
             <button data-id="${p.id}" class="ripple addBtn flex-1 px-4 py-2 rounded-xl bg-maroon-900 text-white font-bold hover:shadow-glow">Tambah</button>
             <button data-id="${p.id}" class="ripple detailBtn px-4 py-2 rounded-xl border font-semibold hover:bg-gray-50 dark:hover:bg-neutral-900 dark:border-neutral-700">Detail</button>
           </div>
-        </div>`;
+        </div>
+        <button data-id="${p.id}" class="ripple absolute opacity-0 group-hover:opacity-100 transition-opacity bottom-4 right-4 px-3 py-2 rounded-xl bg-white text-maroon-900 font-bold shadow-soft border">+ Quick Add</button>
+      `;
       return el;
     };
     function renderGrid(list){ grid.innerHTML=''; list.forEach(p=>grid.appendChild(createCard(p))); observeReveal(); }
     renderGrid(PRODUCTS);
 
+    // Search
     const searchInput=document.getElementById('searchInput'); const clearSearch=document.getElementById('clearSearch');
     function doSearch(){ const t=(searchInput.value||'').toLowerCase(); renderGrid(PRODUCTS.filter(p=>p.name.toLowerCase().includes(t)||p.description.toLowerCase().includes(t))); }
     searchInput?.addEventListener('input',doSearch); clearSearch?.addEventListener('click',()=>{searchInput.value=''; renderGrid(PRODUCTS);});
 
-    const menuBtn=document.getElementById('menuBtn'); const mobileNav=document.getElementById('mobileNav'); menuBtn?.addEventListener('click',()=>mobileNav.classList.toggle('hidden'));
-
+    // Theme + mobile menu
     function toggleTheme(){ const d=document.documentElement.classList.toggle('dark'); localStorage.setItem('theme', d?'dark':'light'); }
     document.getElementById('themeBtn').addEventListener('click',toggleTheme);
     document.getElementById('themeBtnMobile').addEventListener('click',toggleTheme);
+    const menuBtn=document.getElementById('menuBtn'); const mobileNav=document.getElementById('mobileNav'); menuBtn?.addEventListener('click',()=>mobileNav.classList.toggle('hidden'));
 
+    // Modal & Cart logic (same as previous but with order bar + favorites)
     const modal=document.getElementById('modal'); const modalTitle=document.getElementById('modalTitle'); const modalDesc=document.getElementById('modalDesc'); const modalPrice=document.getElementById('modalPrice'); const modalMarket=document.getElementById('modalMarket'); const modalImage=document.getElementById('modalImage'); const modalQty=document.getElementById('modalQty'); const modalAdd=document.getElementById('modalAdd');
     document.getElementById('closeModal').addEventListener('click',()=>modal.classList.add('hidden')); modal.addEventListener('click',(e)=>{if(e.target===modal)modal.classList.add('hidden');});
-    let currentProduct=null;
-    document.addEventListener('click',(e)=>{
-      if(e.target.closest('.detailBtn')){ const id=e.target.closest('.detailBtn').dataset.id; const p=PRODUCTS.find(x=>x.id===id); currentProduct=p; modalTitle.textContent=p.name; modalDesc.textContent=p.description; modalPrice.textContent=`${formatIDR(p.price)} ${p.unit}`; modalMarket.textContent=p.market; modalImage.src=p.img; modalQty.value=1; modal.classList.remove('hidden'); }
-      if(e.target.closest('.addBtn')){ const id=e.target.closest('.addBtn').dataset.id; addToCart(id,1); }
-    });
 
     const cartBtn=document.getElementById('cartBtn'); const cartDrawer=document.getElementById('cartDrawer'); const closeCart=document.getElementById('closeCart'); const cartItems=document.getElementById('cartItems'); const cartTotal=document.getElementById('cartTotal'); const cartCount=document.getElementById('cartCount'); const clearCartBtn=document.getElementById('clearCart'); const checkoutWA=document.getElementById('checkoutWA');
+    const orderBar=document.getElementById('orderBar'); const orderCount=document.getElementById('orderCount'); const orderTotal=document.getElementById('orderTotal'); const openCartBar=document.getElementById('openCartBar');
+
     let CART=[];
-    function openCart(){cartDrawer.style.transform='translateX(0)';} function closeCartFn(){cartDrawer.style.transform='translateX(100%)';}
-    cartBtn.addEventListener('click',openCart); closeCart.addEventListener('click',closeCartFn);
-    function addToCart(id,qty=1){ const p=PRODUCTS.find(x=>x.id===id); if(!p)return; const i=CART.findIndex(x=>x.id===id); if(i>=0)CART[i].qty+=qty; else CART.push({id,name:p.name,price:p.price,unit:p.unit,qty}); renderCart(); openCart(); }
+
+    function openCart(){ cartDrawer.style.transform='translateX(0)'; }
+    function closeCartFn(){ cartDrawer.style.transform='translateX(100%)'; }
+    cartBtn.addEventListener('click',openCart); closeCart.addEventListener('click',closeCartFn); openCartBar.addEventListener('click',openCart);
+
+    function addToCart(id,qty=1){
+      const p=PRODUCTS.find(x=>x.id===id); if(!p)return;
+      const i=CART.findIndex(x=>x.id===id);
+      if(i>=0) CART[i].qty+=qty; else CART.push({id,name:p.name,price:p.price,unit:p.unit,qty});
+      renderCart(); openCart(); 
+    }
+
     function updateQty(id,qty){ const i=CART.findIndex(x=>x.id===id); if(i>=0){CART[i].qty=Math.max(1,qty); renderCart();} }
     function removeItem(id){ CART=CART.filter(x=>x.id!==id); renderCart(); }
-    function renderCart(){ cartItems.innerHTML=''; let total=0; CART.forEach(item=>{ total+=item.price*item.qty; const row=document.createElement('div'); row.className='border rounded-xl p-3 flex items-center gap-3 dark:border-neutral-800'; row.innerHTML=`
+
+    function renderCart(){
+      cartItems.innerHTML=''; let total=0; let count=0;
+      CART.forEach(item=>{
+        total+=item.price*item.qty; count+=item.qty;
+        const row=document.createElement('div');
+        row.className='border rounded-xl p-3 flex items-center gap-3 dark:border-neutral-800';
+        row.innerHTML=`
           <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-maroon-900 to-maroon-700 grid place-items-center text-white font-bold">${item.name.split(' ')[0]}</div>
           <div class="flex-1"><div class="font-semibold">${item.name}</div><div class="text-sm text-gray-600 dark:text-neutral-400">${formatIDR(item.price)} ${item.unit}</div></div>
           <div class="flex items-center gap-2">
             <input type="number" min="1" value="${item.qty}" data-id="${item.id}" class="qtyInput w-16 px-2 py-1 rounded-lg border dark:border-neutral-800 dark:bg-neutral-900">
             <button class="removeBtn ripple p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-900" data-id="${item.id}"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/></svg></button>
-          </div>`; cartItems.appendChild(row); }); cartTotal.textContent=formatIDR(total); cartCount.textContent=CART.reduce((a,c)=>a+c.qty,0); }
+          </div>`;
+        cartItems.appendChild(row);
+      });
+      cartTotal.textContent=formatIDR(total);
+      cartCount.textContent=count;
+      // order bar
+      orderCount.textContent=count; orderTotal.textContent=formatIDR(total);
+      orderBar.style.transform = count>0 ? 'translateY(0)' : 'translateY(100%)';
+    }
+
     cartItems.addEventListener('input',(e)=>{ if(e.target.classList.contains('qtyInput')){const id=e.target.dataset.id; const val=parseInt(e.target.value||'1',10); updateQty(id,isNaN(val)?1:val);} });
     cartItems.addEventListener('click',(e)=>{ if(e.target.closest('.removeBtn')) removeItem(e.target.closest('.removeBtn').dataset.id); });
-    clearCartBtn.addEventListener('click',()=>{CART=[]; renderCart();});
 
+    clearCartBtn.addEventListener('click',()=>{CART=[]; renderCart();});
     function buildWAMessage(){ const lines=['Halo NJ Design, saya ingin order:','']; CART.forEach((it,idx)=>{lines.push(`${idx+1}. ${it.name} x${it.qty} — ${formatIDR(it.price)}${it.unit}`);}); lines.push(''); const total=CART.reduce((a,c)=>a+c.price*c.qty,0); lines.push(`Total estimasi: ${formatIDR(total)}`); lines.push(''); lines.push('Catatan/Brief:'); return encodeURIComponent(lines.join('\\n')); }
     checkoutWA.addEventListener('click',()=>{ const wa=document.getElementById('waNumber').value||'6288296642919'; const msg=buildWAMessage(); window.open(`https://wa.me/${wa}?text=${msg}`,'_blank'); });
+
     document.getElementById('sendWA').addEventListener('click',()=>{ const wa=document.getElementById('waNumber').value||'6288296642919'; const brief=encodeURIComponent((document.getElementById('brief').value||'').trim()||'Halo, saya ingin konsultasi...'); window.open(`https://wa.me/${wa}?text=${brief}`,'_blank'); });
 
+    // Favorites + quick add + detail
+    document.addEventListener('click',(e)=>{
+      const quick = e.target.matches('button') && e.target.textContent.includes('Quick Add') && e.target.dataset.id;
+      if(quick){ addToCart(e.target.dataset.id,1); return; }
+      const favBtn = e.target.closest('.fav');
+      if(favBtn){
+        const card = favBtn.closest('.group');
+        const id = card.querySelector('.addBtn').dataset.id;
+        if(FAVORITES.has(id)){ FAVORITES.delete(id); favBtn.classList.remove('active'); }
+        else { FAVORITES.add(id); favBtn.classList.add('active'); }
+        localStorage.setItem('favorites', JSON.stringify(Array.from(FAVORITES)));
+        return;
+      }
+      if (e.target.closest('.detailBtn')) {
+        const id = e.target.closest('.detailBtn').dataset.id;
+        const p = PRODUCTS.find(x => x.id === id);
+        modalTitle.textContent = p.name;
+        modalDesc.textContent  = p.description;
+        modalPrice.textContent = `${formatIDR(p.price)} ${p.unit}`;
+        modalMarket.textContent= p.market;
+        modalImage.src = p.img;
+        modalQty.value = 1;
+        modal.classList.remove('hidden');
+        return;
+      }
+      if (e.target.closest('.addBtn')) {
+        const id = e.target.closest('.addBtn').dataset.id;
+        addToCart(id, 1);
+        return;
+      }
+    });
+
+    // Scroll reveal
     function observeReveal(){ const els=document.querySelectorAll('.reveal'); const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); } });},{threshold:0.1}); els.forEach(el=>io.observe(el)); }
     observeReveal();
 
