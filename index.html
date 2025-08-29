@@ -38,20 +38,13 @@
     }
   </script>
   <style>
-    /* Ripple click effect */
     .ripple { position: relative; overflow: hidden; }
-    .ripple:after {
-      content: "";
-      position: absolute; inset: 0; border-radius: inherit;
+    .ripple:after { content: ""; position: absolute; inset: 0; border-radius: inherit;
       transform: scale(0); opacity: .35; background: white;
-      transition: transform .45s ease, opacity .8s ease;
-      pointer-events: none;
-    }
+      transition: transform .45s ease, opacity .8s ease; pointer-events: none; }
     .ripple:active:after { transform: scale(1); opacity: 0; }
-    /* Card hover lift */
     .lift { transition: transform .25s ease, box-shadow .25s ease; }
     .lift:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,.12) }
-    /* Hide number input spinners */
     input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
     input[type=number] { -moz-appearance: textfield; }
   </style>
@@ -62,7 +55,7 @@
     <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
       <p class="font-medium">NJ Design — Custom cepat, rapi, bisa satuan & grosir</p>
       <div class="hidden sm:flex items-center gap-4">
-        <span>Bandung • Kirim seluruh Indonesia</span>
+        <span>Jl. Siliwangi No.62, Pancoran Mas, Depok</span>
         <span class="opacity-70">Buka: 09.00–21.00 WIB</span>
       </div>
     </div>
@@ -81,15 +74,15 @@
         </div>
       </a>
 
-      <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
-        <a href="#produk" class="hover:text-maroon-800">Produk</a>
-        <a href="#tentang" class="hover:text-maroon-800">Tentang</a>
-        <a href="#faq" class="hover:text-maroon-800">FAQ</a>
-        <a href="#kontak" class="hover:text-maroon-800">Kontak</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-bold">
+        <a href="#produk" class="hover:text-maroon-800 ripple px-2 py-1 rounded-lg">Produk</a>
+        <a href="#tentang" class="hover:text-maroon-800 ripple px-2 py-1 rounded-lg">Tentang</a>
+        <a href="#faq" class="hover:text-maroon-800 ripple px-2 py-1 rounded-lg">FAQ</a>
+        <a href="#kontak" class="hover:text-maroon-800 ripple px-2 py-1 rounded-lg">Kontak</a>
       </nav>
 
       <div class="flex items-center gap-2">
-        <button id="searchBtn" class="ripple px-4 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 text-sm font-semibold">Cari</button>
+        <!-- Search button removed to make room -->
         <button id="cartBtn" class="ripple relative px-4 py-2 rounded-xl bg-maroon-900 text-white hover:shadow-glow">
           Keranjang
           <span id="cartCount" class="absolute -top-2 -right-2 text-[10px] px-1.5 py-0.5 rounded bg-maroon-600 text-white">0</span>
@@ -104,10 +97,10 @@
     <!-- Mobile nav -->
     <div id="mobileNav" class="md:hidden hidden border-t border-gray-100">
       <div class="px-4 py-3 grid gap-2 text-sm font-medium">
-        <a href="#produk" class="py-2">Produk</a>
-        <a href="#tentang" class="py-2">Tentang</a>
-        <a href="#faq" class="py-2">FAQ</a>
-        <a href="#kontak" class="py-2">Kontak</a>
+        <a href="#produk" class="py-2 ripple rounded-lg hover:bg-gray-50 px-2">Produk</a>
+        <a href="#tentang" class="py-2 ripple rounded-lg hover:bg-gray-50 px-2">Tentang</a>
+        <a href="#faq" class="py-2 ripple rounded-lg hover:bg-gray-50 px-2">FAQ</a>
+        <a href="#kontak" class="py-2 ripple rounded-lg hover:bg-gray-50 px-2">Kontak</a>
       </div>
     </div>
   </header>
@@ -115,9 +108,6 @@
   <!-- Hero -->
   <section class="relative overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-br from-maroon-900 via-maroon-700 to-maroon-900"></div>
-    <svg aria-hidden="true" class="absolute -right-20 -top-20 w-[600px] h-[600px] opacity-20" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-      <path fill="#fff" d="M38.5,-56.9C49.9,-51,60.3,-42.9,67.7,-31.6C75.1,-20.3,79.6,-6.6,79.1,6.8C78.5,20.2,73,33.4,64.6,44.6C56.2,55.8,45,64.9,32.3,70.1C19.5,75.3,5.3,76.6,-8.4,77.2C-22.1,77.8,-35.3,77.8,-46.7,72.5C-58.1,67.2,-67.8,56.6,-73,44.2C-78.1,31.8,-78.8,17.6,-77.9,3.8C-77.1,-10.1,-74.7,-20.1,-68.9,-29.6C-63.1,-39.1,-54,-48.1,-43.1,-54.9C-32.2,-61.6,-19.6,-66.1,-6.4,-63.4C6.8,-60.7,13.5,-50.9,38.5,-56.9Z" transform="translate(100 100)" />
-    </svg>
     <div class="relative max-w-7xl mx-auto px-4">
       <div class="grid md:grid-cols-2 gap-10 items-center py-16 md:py-24">
         <div class="text-white">
@@ -133,12 +123,12 @@
           <div class="aspect-[4/3] bg-white/10 backdrop-blur rounded-3xl ring-1 ring-white/20 shadow-soft p-4">
             <div class="h-full w-full rounded-2xl bg-gradient-to-br from-white/15 to-transparent grid place-items-center">
               <div class="grid grid-cols-3 gap-3 w-full">
-                <div class="bg-white/90 rounded-2xl h-32 md:h-36 grid place-items-center text-center p-3 text-maroon-900 font-extrabold shadow-soft">Goodie Bag</div>
-                <div class="bg-white/90 rounded-2xl h-32 md:h-36 grid place-items-center text-center p-3 text-maroon-900 font-extrabold shadow-soft">Kaos</div>
-                <div class="bg-white/90 rounded-2xl h-32 md:h-36 grid place-items-center text-center p-3 text-maroon-900 font-extrabold shadow-soft">Bantal</div>
-                <div class="bg-white/90 rounded-2xl h-32 md:h-36 grid place-items-center text-center p-3 text-maroon-900 font-extrabold shadow-soft">Selimut</div>
-                <div class="bg-white/90 rounded-2xl h-32 md:h-36 grid place-items-center text-center p-3 text-maroon-900 font-extrabold shadow-soft">Mug</div>
-                <div class="bg-white/90 rounded-2xl h-32 md:h-36 grid place-items-center text-center p-3 text-maroon-900 font-extrabold shadow-soft">Banner</div>
+                <img src="images/goodiebag.jpg" alt="Goodiebag custom" class="rounded-2xl h-32 md:h-36 w-full object-cover shadow-soft">
+                <img src="images/kaos.jpg" alt="Kaos custom" class="rounded-2xl h-32 md:h-36 w-full object-cover shadow-soft">
+                <img src="images/bantal.jpg" alt="Bantal custom" class="rounded-2xl h-32 md:h-36 w-full object-cover shadow-soft">
+                <img src="images/selimut.jpg" alt="Selimut custom" class="rounded-2xl h-32 md:h-36 w-full object-cover shadow-soft">
+                <img src="images/mug.jpg" alt="Mug custom" class="rounded-2xl h-32 md:h-36 w-full object-cover shadow-soft">
+                <img src="images/banner.jpg" alt="Banner custom" class="rounded-2xl h-32 md:h-36 w-full object-cover shadow-soft">
               </div>
             </div>
           </div>
@@ -179,34 +169,13 @@
       <div class="rounded-3xl border bg-white p-6 shadow-soft">
         <h4 class="font-extrabold text-lg">Info Harga Pasar (ringkas)</h4>
         <div class="mt-3 grid sm:grid-cols-2 gap-3 text-sm">
-          <div class="p-3 border rounded-xl">
-            <div class="font-bold">Kaos Custom</div>
-            <div class="text-gray-600">± Rp 57.500–90.000 /pcs (DTF + kaos)</div>
-          </div>
-          <div class="p-3 border rounded-xl">
-            <div class="font-bold">Goodie Bag</div>
-            <div class="text-gray-600">± Rp 2.500–30.000 /pcs (bulk)</div>
-          </div>
-          <div class="p-3 border rounded-xl">
-            <div class="font-bold">Mug Custom</div>
-            <div class="text-gray-600">± Rp 25.000–60.000 /pcs</div>
-          </div>
-          <div class="p-3 border rounded-xl">
-            <div class="font-bold">Bantal Custom</div>
-            <div class="text-gray-600">± Rp 30.000–70.000 /pcs</div>
-          </div>
-          <div class="p-3 border rounded-xl">
-            <div class="font-bold">Selimut Custom</div>
-            <div class="text-gray-600">± Rp 150.000–350.000</div>
-          </div>
-          <div class="p-3 border rounded-xl">
-            <div class="font-bold">Banner/Spanduk</div>
-            <div class="text-gray-600">± Rp 13.500–40.000 /m</div>
-          </div>
-          <div class="p-3 border rounded-xl">
-            <div class="font-bold">Cover Novel</div>
-            <div class="text-gray-600">± Rp 99.000–500.000 /jasa</div>
-          </div>
+          <div class="p-3 border rounded-xl"><div class="font-bold">Kaos Custom</div><div class="text-gray-600">± Rp 57.500–90.000 /pcs (DTF + kaos)</div></div>
+          <div class="p-3 border rounded-xl"><div class="font-bold">Goodie Bag</div><div class="text-gray-600">± Rp 2.500–30.000 /pcs (bulk)</div></div>
+          <div class="p-3 border rounded-xl"><div class="font-bold">Mug Custom</div><div class="text-gray-600">± Rp 25.000–60.000 /pcs</div></div>
+          <div class="p-3 border rounded-xl"><div class="font-bold">Bantal Custom</div><div class="text-gray-600">± Rp 30.000–70.000 /pcs</div></div>
+          <div class="p-3 border rounded-xl"><div class="font-bold">Selimut Custom</div><div class="text-gray-600">± Rp 150.000–350.000</div></div>
+          <div class="p-3 border rounded-xl"><div class="font-bold">Banner/Spanduk</div><div class="text-gray-600">± Rp 13.500–40.000 /m</div></div>
+          <div class="p-3 border rounded-xl"><div class="font-bold">Cover Novel</div><div class="text-gray-600">± Rp 99.000–500.000 /jasa</div></div>
         </div>
         <div class="mt-3 text-xs text-gray-500">*Rentang harga akan menyesuaikan bahan, ukuran, dan jumlah.</div>
       </div>
@@ -241,18 +210,19 @@
           <h3 class="text-2xl md:text-3xl font-black tracking-tight">Siap mulai? Konsultasi gratis!</h3>
           <p class="mt-2 text-gray-600">Kirim brief & gambar produk—kami bantu hitungkan harga paling pas.</p>
           <div class="mt-6 grid gap-3">
-            <input id="waNumber" type="tel" placeholder="Nomor WhatsApp (contoh: 62812xxxxxxx)" class="px-4 py-3 rounded-xl border focus:ring-2 focus:ring-maroon-300 focus:outline-none">
+            <input id="waNumber" type="tel" value="6288296642919" class="px-4 py-3 rounded-xl border focus:ring-2 focus:ring-maroon-300 focus:outline-none">
             <textarea id="brief" rows="4" placeholder="Tulis kebutuhanmu (produk, ukuran, jumlah, finishing)" class="px-4 py-3 rounded-xl border focus:ring-2 focus:ring-maroon-300 focus:outline-none"></textarea>
             <div class="flex gap-3">
               <button id="sendWA" class="ripple px-5 py-3 rounded-xl bg-maroon-900 text-white font-bold hover:shadow-glow">Kirim via WhatsApp</button>
               <button id="downloadQuote" class="ripple px-5 py-3 rounded-xl border font-semibold hover:bg-gray-50">Unduh ringkasan</button>
             </div>
+            <div class="text-sm text-gray-600">Instagram: <a href="https://www.instagram.com/jenfornaren?igsh=MXJmdXBoeDNkODU4MA==" class="text-maroon-800 underline">jenfornaren</a></div>
           </div>
           <p class="mt-3 text-xs text-gray-500">*Nomor tidak disimpan. Hanya membuka chat WA dengan template pesan.</p>
         </div>
         <div class="rounded-2xl bg-gray-50 border p-5">
           <h4 class="font-extrabold">Alamat & Jam</h4>
-          <p class="mt-2 text-gray-700">Workshop: Bandung (by appointment). Kirim ke seluruh Indonesia.</p>
+          <p class="mt-2 text-gray-700">Workshop: Jl. Siliwangi No.62, Kec. Pancoran Mas, Kota Depok. Kirim ke seluruh Indonesia.</p>
           <div class="mt-4 grid sm:grid-cols-2 gap-3 text-sm">
             <div class="p-3 bg-white border rounded-xl">Sen–Jum • 09.00–21.00</div>
             <div class="p-3 bg-white border rounded-xl">Sab–Min • 10.00–20.00</div>
@@ -260,7 +230,7 @@
           <div class="mt-6">
             <div class="text-sm text-gray-600">Media Sosial</div>
             <div class="mt-2 flex gap-2 flex-wrap">
-              <a href="#" class="ripple px-3 py-1.5 rounded-full bg-gray-900 text-white text-xs">Instagram</a>
+              <a href="https://www.instagram.com/jenfornaren?igsh=MXJmdXBoeDNkODU4MA==" class="ripple px-3 py-1.5 rounded-full bg-gray-900 text-white text-xs">Instagram</a>
               <a href="#" class="ripple px-3 py-1.5 rounded-full bg-gray-200 text-gray-900 text-xs">Facebook</a>
               <a href="#" class="ripple px-3 py-1.5 rounded-full bg-gray-200 text-gray-900 text-xs">YouTube</a>
               <a href="#" class="ripple px-3 py-1.5 rounded-full bg-gray-200 text-gray-900 text-xs">TikTok</a>
@@ -306,7 +276,9 @@
         </button>
       </div>
       <div class="p-6 grid md:grid-cols-2 gap-6">
-        <div id="modalImage" class="aspect-square rounded-2xl bg-gray-100 grid place-items-center text-maroon-900 font-black text-xl">Preview</div>
+        <div class="aspect-square rounded-2xl bg-gray-100 overflow-hidden">
+          <img id="modalImage" alt="Preview" class="w-full h-full object-cover" />
+        </div>
         <div>
           <div id="modalDesc" class="text-gray-700"></div>
           <div class="mt-3 p-3 bg-gray-50 rounded-xl">
@@ -338,7 +310,6 @@
   <script>
     const formatIDR = n => new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(n);
 
-    // Marketplace-informed market ranges (for info box)
     const MARKET_INFO = {
       'Goodie Bag Custom': 'Pasar: ± Rp 2.500–30.000/pcs (bulk)',
       'Baju Custom': 'Pasar: ± Rp 57.500–90.000/pcs (DTF + kaos)',
@@ -349,71 +320,14 @@
       'Cover Novel': 'Pasar: ± Rp 99.000–500.000/jasa'
     };
 
-    // NJ Design baseline (you can edit freely)
     const PRODUCTS = [
-      {
-        id: 'goodie-bag',
-        name: 'Goodie Bag Custom',
-        description: 'Tas spunbond custom untuk event/merch. Bisa sablon 1–2 sisi. *MOQ* bisa berlaku untuk bahan tertentu.',
-        price: 7000, // baseline satuan kecil; sarankan grosir
-        unit: '/pcs',
-        img: 'Goodie Bag',
-        market: MARKET_INFO['Goodie Bag Custom']
-      },
-      {
-        id: 'baju-custom',
-        name: 'Baju Custom',
-        description: 'Kaos cotton combed + sablon DTF full color. Cocok untuk komunitas/brand merch.',
-        price: 85000,
-        unit: '/pcs',
-        img: 'Kaos',
-        market: MARKET_INFO['Baju Custom']
-      },
-      {
-        id: 'bantal-custom',
-        name: 'Bantal Custom',
-        description: 'Bantal sofa/foto ukuran 30×30/40×40 bahan rasfur/velboa. Isi silikon empuk.',
-        price: 45000,
-        unit: '/pcs',
-        img: 'Bantal',
-        market: MARKET_INFO['Bantal Custom']
-      },
-      {
-        id: 'selimut-custom',
-        name: 'Selimut Custom',
-        description: 'Selimut custom fullprint. Pilihan bahan scuba/flanel/rasfur.',
-        price: 180000,
-        unit: '',
-        img: 'Selimut',
-        market: MARKET_INFO['Selimut Custom']
-      },
-      {
-        id: 'gelas-custom',
-        name: 'Gelas Custom',
-        description: 'Mug keramik/sublim print. Cocok untuk hadiah & souvenir.',
-        price: 30000,
-        unit: '/pcs',
-        img: 'Mug',
-        market: MARKET_INFO['Gelas Custom']
-      },
-      {
-        id: 'banner-custom',
-        name: 'Banner Custom',
-        description: 'Cetak spanduk/banner bahan flexy 280–440gr. Harga per meter.',
-        price: 25000,
-        unit: '/m',
-        img: 'Banner',
-        market: MARKET_INFO['Banner Custom']
-      },
-      {
-        id: 'cover-novel',
-        name: 'Cover Novel',
-        description: 'Jasa desain cover buku/novel. Termasuk 2–3 konsep & 2x revisi minor.',
-        price: 200000,
-        unit: '/paket',
-        img: 'Cover',
-        market: MARKET_INFO['Cover Novel']
-      },
+      { id:'goodie-bag', name:'Goodie Bag Custom', description:'Tas spunbond custom untuk event/merch. Bisa sablon 1–2 sisi. *MOQ* bisa berlaku untuk bahan tertentu.', price:7000, unit:'/pcs', img:'images/goodiebag.jpg', market:MARKET_INFO['Goodie Bag Custom'] },
+      { id:'baju-custom', name:'Baju Custom', description:'Kaos cotton combed + sablon DTF full color. Cocok untuk komunitas/brand merch.', price:85000, unit:'/pcs', img:'images/kaos.jpg', market:MARKET_INFO['Baju Custom'] },
+      { id:'bantal-custom', name:'Bantal Custom', description:'Bantal sofa/foto ukuran 30×30/40×40 bahan rasfur/velboa. Isi silikon empuk.', price:45000, unit:'/pcs', img:'images/bantal.jpg', market:MARKET_INFO['Bantal Custom'] },
+      { id:'selimut-custom', name:'Selimut Custom', description:'Selimut custom fullprint. Pilihan bahan scuba/flanel/rasfur.', price:180000, unit:'', img:'images/selimut.jpg', market:MARKET_INFO['Selimut Custom'] },
+      { id:'gelas-custom', name:'Gelas Custom', description:'Mug keramik/sublim print. Cocok untuk hadiah & souvenir.', price:30000, unit:'/pcs', img:'images/mug.jpg', market:MARKET_INFO['Gelas Custom'] },
+      { id:'banner-custom', name:'Banner Custom', description:'Cetak spanduk/banner bahan flexy 280–440gr. Harga per meter.', price:25000, unit:'/m', img:'images/banner.jpg', market:MARKET_INFO['Banner Custom'] },
+      { id:'cover-novel', name:'Cover Novel', description:'Jasa desain cover buku/novel. Termasuk 2–3 konsep & 2x revisi minor.', price:200000, unit:'/paket', img:'images/cover.jpg', market:MARKET_INFO['Cover Novel'] },
     ];
 
     const grid = document.getElementById('grid');
@@ -422,7 +336,9 @@
       const el = document.createElement('div');
       el.className = 'lift rounded-2xl border bg-white overflow-hidden shadow-soft flex flex-col';
       el.innerHTML = `
-        <div class="aspect-[4/3] bg-gradient-to-br from-maroon-900 to-maroon-700 grid place-items-center text-white font-black text-xl">${p.img}</div>
+        <div class="aspect-[4/3] bg-gray-100 overflow-hidden">
+          <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover">
+        </div>
         <div class="p-4 flex-1 flex flex-col">
           <div class="flex items-start justify-between gap-3">
             <h4 class="font-extrabold text-lg">${p.name}</h4>
@@ -445,17 +361,15 @@
     }
     renderGrid(PRODUCTS);
 
-    // Search
+    // Search (section only)
     const searchInput = document.getElementById('searchInput');
-    const searchBtn = document.getElementById('searchBtn');
     const clearSearch = document.getElementById('clearSearch');
-    function doSearch(q) {
-      const term = (q || searchInput.value || '').toLowerCase();
+    function doSearch(){
+      const term = (searchInput.value || '').toLowerCase();
       const res = PRODUCTS.filter(p => p.name.toLowerCase().includes(term) || p.description.toLowerCase().includes(term));
       renderGrid(res);
     }
-    searchBtn.addEventListener('click', () => doSearch());
-    searchInput?.addEventListener('input', () => doSearch());
+    searchInput?.addEventListener('input', doSearch);
     clearSearch?.addEventListener('click', () => { searchInput.value=''; renderGrid(PRODUCTS); });
 
     // Mobile menu
@@ -486,7 +400,7 @@
         modalDesc.textContent  = p.description;
         modalPrice.textContent = `${formatIDR(p.price)} ${p.unit}`;
         modalMarket.textContent= p.market;
-        modalImage.textContent = p.img;
+        modalImage.src = p.img;
         modalQty.value = 1;
         modal.classList.remove('hidden');
       }
@@ -496,13 +410,6 @@
       }
     });
 
-    modalAdd.addEventListener('click', () => {
-      if (!currentProduct) return;
-      const qty = Math.max(1, parseInt(modalQty.value || '1', 10));
-      addToCart(currentProduct.id, qty);
-      modal.classList.add('hidden');
-    });
-
     // Cart logic
     const cartBtn = document.getElementById('cartBtn');
     const cartDrawer = document.getElementById('cartDrawer');
@@ -510,7 +417,7 @@
     const cartItems = document.getElementById('cartItems');
     const cartTotal = document.getElementById('cartTotal');
     const cartCount = document.getElementById('cartCount');
-    const clearCart = document.getElementById('clearCart');
+    const clearCartBtn = document.getElementById('clearCart');
     const checkoutWA = document.getElementById('checkoutWA');
 
     let CART = [];
@@ -583,7 +490,7 @@
         removeItem(e.target.closest('.removeBtn').dataset.id);
       }
     });
-    clearCart.addEventListener('click', () => { CART = []; renderCart(); });
+    clearCartBtn.addEventListener('click', () => { CART = []; renderCart(); });
 
     // Checkout via WhatsApp
     function buildWAMessage(){
@@ -596,30 +503,19 @@
       lines.push(`Total estimasi: ${formatIDR(total)}`);
       lines.push('');
       lines.push('Catatan/Brief:');
-      return encodeURIComponent(lines.join('\n'));
+      return encodeURIComponent(lines.join('\\n'));
     }
     checkoutWA.addEventListener('click', () => {
-      const wa = document.getElementById('waNumber').value || '62812xxxxxxx';
+      const wa = document.getElementById('waNumber').value || '6288296642919';
       const msg = buildWAMessage();
       window.open(`https://wa.me/${wa}?text=${msg}`, '_blank');
     });
 
     // CTA WhatsApp
     document.getElementById('sendWA').addEventListener('click', () => {
-      const wa = document.getElementById('waNumber').value || '62812xxxxxxx';
+      const wa = document.getElementById('waNumber').value || '6288296642919';
       const brief = encodeURIComponent((document.getElementById('brief').value || '').trim() || 'Halo, saya ingin konsultasi...');
       window.open(`https://wa.me/${wa}?text=${brief}`, '_blank');
-    });
-
-    // Download quote
-    document.getElementById('downloadQuote').addEventListener('click', () => {
-      const blob = new Blob([JSON.stringify({ items: CART, total: CART.reduce((a,c)=>a+c.price*c.qty,0) }, null, 2)], { type: 'application/json' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'nj-design-quote.json';
-      a.click();
-      URL.revokeObjectURL(url);
     });
 
     // Year
